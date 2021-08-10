@@ -1,2 +1,2 @@
 # SoftUni
-A repo containing programs from softuni.
+Projects that i've worked on during my JS SoftUni path.
