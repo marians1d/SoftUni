@@ -2,7 +2,7 @@ function printAndSum(start, end) {
     let sum = 0;
     let numRow = "";
 
-    for(let i = start; i <= end; i++) {
+    for (let i = start; i <= end; i++) {
         numRow += i + " ";
         sum += i;
     }
