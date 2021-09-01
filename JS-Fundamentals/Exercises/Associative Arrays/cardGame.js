@@ -13,7 +13,7 @@ function cardGame(info) {
             players[name] = hand;
         }
     }
-    
+
     for (let player of Object.keys(players)) {
         let clearHand = [];
         for (let card of players[player]) {
@@ -21,7 +21,7 @@ function cardGame(info) {
                 clearHand.push(card);
             }
         }
-    
+
         players[player] = clearHand;
 
         let handPoints = handScore(players[player]);
@@ -62,7 +62,6 @@ function cardGame(info) {
                     cardScore = Number(power);
             }
 
-
             switch (type) {
                 case 'S':
                     cardScore *= 4;
@@ -78,13 +77,9 @@ function cardGame(info) {
                     break;
             }
             powerOfHand += cardScore;
-
         }
         return powerOfHand;
     }
 }
 
-cardGame([
-    'Tomas: 3H, 10S, JC, KD, 5S, 10S',
-    'Tomas: 6H, 7S, KC, KD, 5S, 10C',
-])
+cardGame(['Tomas: 3H, 10S, JC, KD, 5S, 10S', 'Tomas: 6H, 7S, KC, KD, 5S, 10C']);
