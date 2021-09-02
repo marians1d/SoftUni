@@ -5,14 +5,16 @@ function solve(input) {
         let [name, id] = line.split(' -> ');
 
         if (companies[name] === undefined) {
-            companies[name] =[];
+            companies[name] = [];
         }
-        
+
         if (!companies[name].includes(id)) {
             companies[name].push(id);
         }
     }
-    let sortedCompanies = Object.keys(companies).sort((a, b) => a.localeCompare(b));
+    let sortedCompanies = Object.keys(companies).sort((a, b) =>
+        a.localeCompare(b)
+    );
 
     for (let key of sortedCompanies) {
         console.log(key);
@@ -28,4 +30,4 @@ solve([
     'SoftUni -> BB12345',
     'Microsoft -> CC12345',
     'HP -> BB12345'
-])
+]);
