@@ -3,7 +3,7 @@ import {cats as catsData} from './catSeeder.js';
 
 const root = document.getElementById('allCats');
 
-catsData.forEach(c => c.info == false);
+catsData.forEach(c => c.info = false);
 
 const catCard = (cat) => html`
 <li>
