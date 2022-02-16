@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-// TODO: change user model acording to exam description
+// TODO: (2) change user model acording to exam description
 // TODO: add validation
 const userSchema = new Schema({
     username: { type: String, required: true },
