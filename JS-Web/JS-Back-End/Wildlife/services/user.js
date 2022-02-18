@@ -1,18 +1,21 @@
 const User = require('../models/User');
 const { hash, compare } = require('bcrypt');
 
-// TODO: add all fields required by the exam
-async function register(username, password) {
-    const existing = await getUserByUsername(username);
+const identifierName = 'email';
+
+async function register(firstName, lastName, email, password) {
+    const existing = await getUserByIdentifier(email);
 
     if (existing) {
-        throw new Error('Username is taken');
+        throw new Error('email is taken');
     }
 
     const hashedPassword = await hash(password, 10);
 
     const user = new User({
-        username,
+        firstName,
+        lastName,
+        email,
         hashedPassword
     });
 
@@ -21,10 +24,9 @@ async function register(username, password) {
     return user;
 }
 
-// TODO: change identifier
-async function login(username, password) {
-    const user = await getUserByUsername(username);
-    
+async function login(email, password) {
+    const user = await getUserByIdentifier(email);
+
     if (!user) {
         throw new Error('Incorect username or password');
     }
@@ -37,9 +39,11 @@ async function login(username, password) {
     return user;
 }
 
-//  TODO: identify user by given identifier
-async function getUserByUsername(username) {
-    const user = User.findOne({ username: new RegExp(`^${username}$`, 'i') });
+async function getUserByIdentifier(identifier) {
+    const options = {};
+    options[identifierName] = identifier;
+
+    const user = User.findOne(options);
 
     return user;
 }
