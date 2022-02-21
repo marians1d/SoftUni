@@ -17,17 +17,12 @@
                 </div>
                 <label>Gender</label>
                 <div class="gender">
-                    {{#if data.isMale}}
-                    <input type="radio" id="female" name="gender" value="female">
+                    
+                    <input type="radio" id="female" name="gender" value="female" {{#unless data.isMale}}checked{{/unless}}>
                     <label for="female">Female</label>
-                    <input type="radio" id="male" name="gender" value="male" checked>
+                    <input type="radio" id="male" name="gender" value="male" {{#if data.isMale}}checked{{/if}}>
                     <label for="male">Male</label>
-                    {{else}}
-                    <input type="radio" id="female" name="gender" value="female" checked>
-                    <label for="female">Female</label>
-                    <input type="radio" id="male" name="gender" value="male">
-                    <label for="male">Male</label>
-                    {{/if}}
+                    
                 </div>
                 <div class="form-group">
                     <p>Already have account? <a href="/login">Login Now!</a></p>

@@ -27,8 +27,6 @@ function tripViewModel(trip) {
     };
 }
 
-
-
 function userViewModel(buddie) {
     return {
         _id: buddie._id,
@@ -36,7 +34,27 @@ function userViewModel(buddie) {
     };
 }
 
+function profileViewModel(user) {
+    return {
+        _id: user._id,
+        email: user.email,
+        gender: user.gender,
+        tripHistory: user.tripHistory.map(profileTripViewModel)
+    };
+}
+
+function profileTripViewModel(trip) {
+    return {
+        _id: trip._id,
+        startPoint: trip.startPoint,
+        endPoint: trip.endPoint,
+        date: trip.date,
+        time: trip.time,
+    };
+}
+
 module.exports = {
     mapError,
-    tripViewModel
+    tripViewModel,
+    profileViewModel
 };

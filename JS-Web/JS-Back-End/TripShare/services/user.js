@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const { hash, compare } = require('bcrypt');
+const { profileViewModel } = require('../util/mappers');
 
 const identifierName = 'email';
 
@@ -11,7 +12,7 @@ async function register(email, password, gender) {
     }
 
     if (password.trim().length < 4) {
-        throw new Error('Password must be at least 4 characters long')
+        throw new Error('Password must be at least 4 characters long');
     }
 
     const hashedPassword = await hash(password, 10);
@@ -53,7 +54,23 @@ async function getUserByIdentifier(identifier) {
     return user;
 }
 
+async function getUserById(id) {
+    const user = await User.findById(id).populate('tripHistory', 'startPoint endPoint date time');
+
+    return profileViewModel(user);
+}
+
+async function addToTripHistory(userId, tripId) {
+    const user = await User.findById(userId);
+
+    user.tripHistory.push(tripId);
+
+    await user.save();
+}
+
 module.exports = {
     login,
-    register
-}
+    register,
+    addToTripHistory,
+    getUserById
+};

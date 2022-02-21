@@ -19,7 +19,7 @@ router.post('/create', isUser(), async (req, res) => {
         image: req.body.image,
         description: req.body.description,
         author: userId
-    }
+    };
 
     try {
         await createPost(post);
@@ -28,7 +28,7 @@ router.post('/create', isUser(), async (req, res) => {
     } catch (err) {
         console.error(err);
         const errors = mapError(err);
-        res.render('create', { title: 'Create Post', errors, data: post })
+        res.render('create', { title: 'Create Post', errors, data: post });
     }
 });
 
@@ -59,16 +59,16 @@ router.post('/edit/:id', isUser(), async (req, res) => {
         date: req.body.date,
         image: req.body.image,
         description: req.body.description
-    }
+    };
 
     try {
         await updatePost(id, post);
-        res.redirect('/catalog/' + id)
+        res.redirect('/catalog/' + id);
     } catch (err) {
         console.error(err);
         const errors = mapError(err);
         post._id = id;
-        res.render('edit', { title: 'Edit Post', post, errors })
+        res.render('edit', { title: 'Edit Post', post, errors });
     }
 
     res.redirect(`/catalog/${id}`);
@@ -88,7 +88,7 @@ router.get('/delete/:id', isUser(), async (req, res) => {
     } catch (err) {
         console.error(err);
         const errors = mapError(err);
-        res.render('details', { title: existing.title, existing, errors })
+        res.render('details', { title: existing.title, existing, errors });
     }
 });
 
