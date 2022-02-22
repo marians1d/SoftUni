@@ -52,4 +52,4 @@ async function getUserByIdentifier(identifier) {
 module.exports = {
     login,
     register
-}
+};
