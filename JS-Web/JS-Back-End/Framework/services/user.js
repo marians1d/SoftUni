@@ -1,10 +1,10 @@
 const User = require('../models/User');
 const { hash, compare } = require('bcrypt');
 
-//  TODO: change identifier
+//  TODO (7) change identifier
 const identifierName = 'username';
 
-// TODO: add all fields required by the exam
+// TODO (8) add all fields required by the exam
 async function register(username, password) {
     const existing = await getUserByIdentifier(username);
 
@@ -24,7 +24,7 @@ async function register(username, password) {
     return user;
 }
 
-// TODO: change identifier
+// TODO (9) change identifier
 async function login(username, password) {
     const user = await getUserByIdentifier(username);
     

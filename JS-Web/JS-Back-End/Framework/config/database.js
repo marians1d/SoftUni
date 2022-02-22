@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-// TODO (1): change database name
+// TODO (3) change database name
 const dataBaseName = 'test';
 
 const connectionString = `mongodb://localhost:27017/${dataBaseName}`;

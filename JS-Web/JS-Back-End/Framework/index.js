@@ -6,7 +6,7 @@ const routesConfig = require('./config/routes');
  
 start();
 
-// TODO install npm dependencies
+// TODO (1) install npm dependencies
 
 async function start() {
     const app = express();
@@ -15,7 +15,7 @@ async function start() {
     await databaseConfig(app);
     routesConfig(app);
 
-    // TODO: remove from project
+    // TODO (2) remove from project
     app.get('/', (req, res) => res.render('home'));
 
     app.listen(3000, () => console.log('Server started on port 3000'));
