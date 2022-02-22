@@ -31,7 +31,7 @@ router.post('/create', isUser(), async (req, res) => {
 
         await addToTripHistory(creatorId, trip._id);
 
-        res.redirect('/catalog');
+        res.redirect('/trips');
     } catch (err) {
         console.error(err);
         const errors = mapError(err);
@@ -44,7 +44,7 @@ router.get('/edit/:id', preload(), isOwner(),  async (req, res) => {
     const id = req.params.id;
 
     try {
-        const trip = await getById(id);
+        const trip = res.locals.trip;
 
         const title = `Edit: ${trip.startPoint} - ${trip.endPoint}`;
 
@@ -73,7 +73,7 @@ router.post('/edit/:id', preload(), isOwner(), async (req, res) => {
 
     try {
         await updateTrip(id, trip);
-        res.redirect('/catalog/' + id);
+        res.redirect('/trips/' + id);
     } catch (err) {
         console.error(err);
         res.redirect('404');
@@ -85,7 +85,7 @@ router.get('/delete/:id', preload(), isOwner(), async (req, res) => {
 
     try {
         await deleteTrip(id);
-        res.redirect('/catalog');
+        res.redirect('/trips');
     } catch (err) {
         console.error(err);
 
@@ -101,7 +101,7 @@ router.get('/join/:id', isUser(), async (req, res) => {
         await joinTrip(userId, tripId);  
         await addToTripHistory(userId, tripId);
         
-        res.redirect('/catalog/' + tripId);
+        res.redirect('/trips/' + tripId);
     } catch (err) {
         console.error(err);
 

@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     res.render('home', { title: 'Home Page' });
 });
 
-router.get('/catalog', async (req, res) => {
+router.get('/trips', async (req, res) => {
     try {
         const trips = await getAll();
 
@@ -20,7 +20,7 @@ router.get('/catalog', async (req, res) => {
     }
 });
 
-router.get('/catalog/:id', async (req, res) => {
+router.get('/trips/:id', async (req, res) => {
     const id = req.params.id;
 
     try {

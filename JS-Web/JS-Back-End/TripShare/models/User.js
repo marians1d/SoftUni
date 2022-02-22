@@ -10,7 +10,7 @@ const userSchema = new Schema({
         message: 'Invalid Email'
     } },
     hashedPassword: { type: String, required: true },
-    gender: { type: String, required: true },
+    gender: { type: String, required: true, enum: ['male', 'female'] },
     tripHistory: { type: [ObjectId], default: [], ref: 'Trip' }
 });
 
