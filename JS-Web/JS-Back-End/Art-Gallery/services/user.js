@@ -1,15 +1,13 @@
 const User = require('../models/User');
 const { hash, compare } = require('bcrypt');
 
-//  TODO (7) change identifier
 const identifierName = 'username';
 
-// TODO (8) add all fields required by the exam
-async function register(username, password) {
+async function register(username, password, address) {
     const existing = await getUserByIdentifier(username);
 
-    if (password.trim() == '') {
-        throw new Error('Password is required');
+    if (password.trim().length < 3) {
+        throw new Error('Password must be at least 3 characters long');
     }
 
     if (existing) {
@@ -20,7 +18,8 @@ async function register(username, password) {
 
     const user = new User({
         username,
-        hashedPassword
+        hashedPassword,
+        address
     });
 
     await user.save();
@@ -28,7 +27,6 @@ async function register(username, password) {
     return user;
 }
 
-// TODO (9) change identifier
 async function login(username, password) {
     const user = await getUserByIdentifier(username);
     
@@ -53,7 +51,14 @@ async function getUserByIdentifier(identifier) {
     return user;
 }
 
+async function getProfileInfo(id) {
+    const user = await User.findById(id).populate('myPulications', 'title').lean();
+
+    return user;
+}
+
 module.exports = {
     login,
-    register
+    register,
+    getProfileInfo
 };

@@ -1,15 +1,13 @@
 const User = require('../models/User');
 const { hash, compare } = require('bcrypt');
 
-//  TODO (7) change identifier
 const identifierName = 'username';
 
-// TODO (8) add all fields required by the exam
-async function register(username, password) {
+async function register(name, username, password) {
     const existing = await getUserByIdentifier(username);
 
-    if (password.trim() == '') {
-        throw new Error('Password is required');
+    if (password.trim().length < 4) {
+        throw new Error('Password must be at least 4 characters long');
     }
 
     if (existing) {
@@ -19,6 +17,7 @@ async function register(username, password) {
     const hashedPassword = await hash(password, 10);
 
     const user = new User({
+        name,
         username,
         hashedPassword
     });
@@ -28,7 +27,6 @@ async function register(username, password) {
     return user;
 }
 
-// TODO (9) change identifier
 async function login(username, password) {
     const user = await getUserByIdentifier(username);
     
