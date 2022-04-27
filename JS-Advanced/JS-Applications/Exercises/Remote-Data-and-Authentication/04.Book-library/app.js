@@ -1,6 +1,6 @@
 const tbody = document.querySelector('tbody');
 
-tbody.addEventListener('click', onActionClick)
+tbody.addEventListener('click', onActionClick);
 
 loadBooks();
 
@@ -10,7 +10,7 @@ const editForm = document.getElementById('editForm');
 editForm.addEventListener('submit', onEditSubmit);
 
 const loadAllBtn = document.getElementById('loadBooks');
-loadAllBtn.addEventListener('click', loadBooks)
+loadAllBtn.addEventListener('click', loadBooks);
 
 // load books
 async function loadBooks() {
@@ -25,7 +25,7 @@ async function loadBooks() {
 }
 // add book
 async function onCreate(event) {
-    event.preventDefault()
+    event.preventDefault();
     const data = new FormData(event.target);
 
     const title = data.get('title');
@@ -65,7 +65,7 @@ function onActionClick(event) {
 async function onEdit(button) {
     const id = button.parentElement.dataset.id;
 
-    const book = await loadBookById(id)
+    const book = await loadBookById(id);
 
     createForm.style.display = 'none';
     editForm.style.display = 'block';
@@ -77,7 +77,7 @@ async function onEdit(button) {
 }
 
 async function onEditSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
 
     const data = new FormData(event.target);
 
@@ -86,7 +86,7 @@ async function onEditSubmit(event) {
     const title = data.get('title');
 
 
-    updateBook(id, {author, title})
+    updateBook(id, {author, title});
 
     event.target.reset();
     createForm.style.display = 'block';
@@ -101,7 +101,7 @@ async function updateBook(id, body) {
     const result = await request(url, {
         method: 'put',
         body: JSON.stringify(body)
-    })
+    });
 
     return result;
 }
