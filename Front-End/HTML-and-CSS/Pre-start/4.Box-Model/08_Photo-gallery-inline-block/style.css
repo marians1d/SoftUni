@@ -9,6 +9,7 @@
     border-color: black;
     border-style: solid;
     padding: 10px;
+    vertical-align: middle;
 }
 
 .gallery img.portrait {
