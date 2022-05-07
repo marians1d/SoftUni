@@ -1,0 +1,48 @@
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+div, section {
+    display: flex;
+    align-items: center;
+}
+
+section:first-child {
+    width: 60%;
+}
+
+section:last-child {
+    width: 40%;
+}
+
+div {
+    max-width: 65vw;
+    flex-wrap: wrap;
+}
+
+span {
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    height: 100px;
+    flex-grow: 1;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.header {
+    width: 100%;
+}
+
+.week {
+    flex-wrap: wrap;
+}
+
+.notes {
+    flex-direction: column;
+}
+
+.notes span {
+    height: 200px;
+    width: 100%;
+}

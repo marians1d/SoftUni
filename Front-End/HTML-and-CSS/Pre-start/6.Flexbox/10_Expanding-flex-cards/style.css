@@ -1,0 +1,30 @@
+body {
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25vh;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+}
+
+img {
+    height: 310px;
+    border-radius: 10px;
+    overflow: hidden;
+    object-fit: cover;
+    box-shadow: 0 0 20px black;
+}
+
+.small {
+    width: 100px;
+}
+
+.big {
+    width: 500px;
+    object-fit: contain;
+    background-color: black;
+}

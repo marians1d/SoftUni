@@ -1,0 +1,24 @@
+body, ul, li {
+    display: flex;
+}
+
+ul {
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+li {
+    border: 7px solid black;
+    padding: 10px;
+    vertical-align: middle;
+    height: 400px;
+    align-items: center;
+    box-shadow: 0 0 20px black;
+}
+
+img {
+    width: 250px;
+}

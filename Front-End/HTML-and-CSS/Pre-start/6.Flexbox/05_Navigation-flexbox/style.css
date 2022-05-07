@@ -1,0 +1,23 @@
+body {
+    padding: 40px;
+}
+
+header {
+    border-bottom-color: rgb(0,0,0);
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+header a {
+    text-decoration: none;
+    color: rgb(0, 153, 0);
+    padding-left: 20px;
+}
