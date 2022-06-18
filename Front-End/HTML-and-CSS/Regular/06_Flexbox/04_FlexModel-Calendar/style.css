@@ -1,0 +1,32 @@
+div, section {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 65vw;
+}
+
+span {
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+
+    flex-grow: 1;
+    height: 100px;
+
+    text-align: center;
+}
+
+.notes {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.week {
+    flex-wrap: wrap;
+}
+
+.week span:first-child, .week span:nth-child(7) {
+    width: 100%;
+}

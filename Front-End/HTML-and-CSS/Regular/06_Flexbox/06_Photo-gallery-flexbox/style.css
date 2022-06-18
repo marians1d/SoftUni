@@ -1,0 +1,27 @@
+body {
+    background-color: #EEE;
+}
+
+body, ul, li {
+    display: flex;
+}
+
+ul {
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0;
+
+    justify-content: space-between;
+}
+
+li {
+    background-color: #FFF;
+    border: 10px solid black;
+    padding: 20px;
+    align-items: center;
+    box-shadow: 0 0 10px black;
+}
+
+img {
+    width: 100%;
+}
