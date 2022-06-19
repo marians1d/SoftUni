@@ -1,0 +1,73 @@
+body {
+    background-color: rgb(238, 238, 238);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.cards-layout {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    height: 1800px;
+}
+
+/* .flex {
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.flex .card {
+    position: relative;
+}
+
+.flex section {
+    margin-bottom: 100px;
+}
+
+.flex footer {
+    position: absolute;
+    bottom: 0;
+} */
+
+.flex {
+    flex-direction: row;
+}
+
+.flex .card {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex section {
+    flex-grow: 1;
+}
+
+
+
+.card {
+    width: calc(90% / 3);
+
+
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+
+    box-shadow: 0 0 10px 5px lightgray;
+}
+
+.card img {
+    border-radius: 10px 10px 0 0;
+
+    width: 100%;
+}
+
+.card section {
+    padding: 20px;
+}
+
+.card footer {
+
+    padding: 20px;
+    border-top: 1px solid lightgray;
+}
