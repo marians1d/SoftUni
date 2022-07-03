@@ -1,0 +1,111 @@
+:root {
+    --light-gray: #efefef;
+    --main-dark: #222222;
+    --icon-gray: #909090;
+    font-size: 21px;
+}
+
+h1, h2, h3 {
+    font-family: Raleway, sans-serif;
+}
+
+section {
+    background-color: var(--light-gray);
+    height: 80vh;
+    max-width: 1600px;
+    margin: 30px auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 100px;
+}
+
+section .image {
+    width: 55%;
+}
+
+.info {
+    align-self: center;
+    width: calc(40% + 50px);
+}
+
+.info h1 {
+    font-weight: 200;
+    font-size: 2.25rem;
+
+    margin-bottom: 30px;
+}
+
+.info span {
+    font-weight: 700;
+}
+
+.info p {
+    margin-bottom: 40px;
+}
+
+.vertical-line {
+    width: 2px;
+    height: 80px;
+    background-color: var(--main-dark);
+}
+
+/* Header */
+
+div.container {
+    
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+
+header {
+    width: 100%;
+    max-width: 1600px;
+    
+    margin: 0 auto;
+    top: 0;
+    height: 80px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+header button {
+    background-color: transparent;
+    border: none;
+    font-weight: 500;
+    font-family: Raleway, sans-serif;
+    display: flex;
+    align-items: center;
+
+    margin-right: 20px;
+}
+
+header button span {
+    margin-right: 10px;
+    vertical-align: baseline;
+}
+
+header button i {
+    font-size: 1.5rem;
+    vertical-align: baseline;
+}
+
+
+
+/* Image Section */
+
+#image-section {
+    height: 100%;
+    padding: 0;
+}
+
+#image-section img {
+    height: auto;
+    width: 100%;
+
+    object-fit: cover;
+}

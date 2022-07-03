@@ -1,0 +1,64 @@
+@media screen and (max-width: 600px) {
+    main, body {
+        margin: 0;
+    }
+
+    main {
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    /* Article */
+    main .left-to-right:first-child {
+        display: flex;
+        height: 560px;
+    }
+
+    main section.left-to-right.left-to-right {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    main .left-to-right article {
+        padding: 30px 40px;
+        border-radius: 100px;
+        width: 100%;
+    }
+
+    button:not(#send) {
+        display: none;
+    }
+
+
+    main > section:nth-child(2) {
+        flex-direction: column;
+    }
+
+    main > section:nth-child(4) {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    main > section:nth-child(4) form {
+        width: 60%;
+    }
+
+    main > section:nth-child(4) form input:not(#send),
+    main > section:nth-child(4) form textarea {
+        width: 100%;
+    }
+
+    label[for='send'] {
+        text-align: center;
+    }
+
+    main > section:nth-child(4) article {
+        margin: 0;
+        width: 100%;
+
+        align-items: center;
+    }
+}
