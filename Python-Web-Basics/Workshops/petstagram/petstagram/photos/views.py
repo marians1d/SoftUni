@@ -2,12 +2,12 @@ from django.shortcuts import render
 
 
 def add_photo(request):
-    pass
+    return render(request, template_name='photos/photo-add-page.html')
 
 
-def photo_details(request, photo_id):
-    pass
+def photo_details(request, pk):
+    return render(request, template_name='photos/photo-details-page.html')
 
 
-def edit_photo(request, photo_id):
-    pass
+def edit_photo(request, pk):
+    return render(request, template_name='photos/photo-edit-page.html')
