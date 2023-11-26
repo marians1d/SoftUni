@@ -16,13 +16,11 @@ def index(request):
 
 
 def model(request):
-    print(request.method)
-    print(request.POST)
-
     if request.method == 'GET':
         form = ModelUser()
     elif request.method == 'POST':
         form = ModelUser(request.POST)
+
         if form.is_valid():
             form.save()
 
