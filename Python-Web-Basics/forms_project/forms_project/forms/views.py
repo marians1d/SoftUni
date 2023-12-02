@@ -16,13 +16,21 @@ def index(request):
 
 
 def model(request):
+    print(request.POST)
+
     if request.method == 'GET':
         form = ModelUser()
     elif request.method == 'POST':
-        form = ModelUser(request.POST)
+        form = ModelUser(request.POST, request.FILES)
+
+        print(form)
 
         if form.is_valid():
-            form.save()
+            image = form.save()
+
+            print(image)
+
+            image.save()
 
     return render(request, template_name='forms/model.html', context={'form': form})
 

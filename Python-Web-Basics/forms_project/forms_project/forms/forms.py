@@ -85,7 +85,7 @@ class ModelUser(forms.ModelForm):
 
         first_name = self.cleaned_data.get('first_name')
 
-        if len(first_name) < 5:
+        if len(first_name) < 2:
             self._errors['first_name'] = self.error_class([
                 'Minimum 2 characters required!'
             ])

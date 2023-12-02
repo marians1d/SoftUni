@@ -12,4 +12,5 @@ class User(models.Model):
             'over_18': 'User must not be over 18!'
         }
     )
+    image = models.ImageField(upload_to='images', blank=True, null=True)
     email = models.EmailField()

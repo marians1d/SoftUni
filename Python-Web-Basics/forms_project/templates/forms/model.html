@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form class="form" action="{% url 'model_page' %}" method="POST">
+    <form class="form" action="{% url 'model_page' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
 
         {{ form }}
