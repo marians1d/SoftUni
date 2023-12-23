@@ -34,7 +34,7 @@
                             <br>
 
                             <!-- IF the photo has location -->
-                            <span>Bansko, Bulgaria</span>
+                            <span>{{ photo.location }}</span>
 
                             <!-- IF the viewer is the creator of the photo -->
                             <div class="edit-delete-btns">
@@ -46,7 +46,7 @@
                                 </a>
 
                                 <!-- Link to Delete Pet Photo Page -->
-                                <a href="#">
+                                <a href="{% url 'delete photo' photo.pk %}">
                                     <img class="bin-img" src="{% static 'images/icon-remove-22.jpg' %}" alt="bin button">
                                 </a>
                             </div>
@@ -61,7 +61,7 @@
                 <!-- Start Pet Photo -->
                 <div class="imgBx" id="{{ photo.pk }}">
                     <!-- Pet Photo -->
-                    <img src="{% static '/images/axolotl.jpeg' %}" alt="post" class="cover">
+                    <img src="{{ photo.photo.url }}" alt="{{ photo.pk }}" class="cover">
                 </div>
                 <!-- End Pet Photo -->
 
@@ -198,10 +198,10 @@
                     </div>
 
                     <!-- Start Add Comments Form -->
-                    <form method="post" action="#">
-                        <label for="id_body">Body:</label>
-                        <textarea name="body" cols="40" rows="10" placeholder="Add comment..." maxlength="300"
-                                  required="" id="id_body"></textarea>
+                    <form method="post" action="{% url 'add comment' photo.pk %}">
+                        {% csrf_token %}
+                        {{ comment_form.as_p }}
+
                         <!-- Post Comments Button -->
                         <button type="submit">Post</button>
                     </form>
