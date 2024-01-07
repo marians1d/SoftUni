@@ -6,8 +6,12 @@
 </head>
 <body>
 
+<form action="{% url 'cbv_view_posts' %}">
+    <input type="text" name="search" value="{{ search }}">
+    <input type="submit" value="Search">
+</form>
 
-<ul>
+<ul class="list">
     {% for post in posts %}
         <li>
             {{ post.pk }} - {{ post.title }}
@@ -16,7 +20,7 @@
 </ul>
 
 {% if page_obj.has_previous %}
-    <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+    <a href="?page={{ page_obj.previous_page_number }}&search={{ search }}">&lt;</a>
 {% else %}
     <a>&lt;</a>
 {% endif %}
@@ -24,7 +28,7 @@
 {{ page_obj.number }}
 
 {% if page_obj.has_next %}
-    <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+    <a href="?page={{ page_obj.next_page_number }}&search={{ search }}">&gt;</a>
 {% else %}
     <a>&gt;</a>
 {% endif %}

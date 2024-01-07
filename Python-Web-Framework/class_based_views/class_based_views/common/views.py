@@ -45,3 +45,17 @@ class PostListView(views.ListView):
     context_object_name = 'posts'
     paginate_by = 5
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+
+        search = self.request.GET.get('search', '')
+        queryset = queryset.filter(title__icontains=search)
+        return queryset
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['search'] = self.request.GET.get('search', '')
+        return context
+
+
+
