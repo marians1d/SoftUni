@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<ul>
+    {% for post in posts %}
+        <li>
+            {{ post.pk }} - {{ post.title }}
+        </li>
+    {% endfor %}
+</ul>
+
+{% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+{% else %}
+    <a>&lt;</a>
+{% endif %}
+
+{{ page_obj.number }}
+
+{% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+{% else %}
+    <a>&gt;</a>
+{% endif %}
+</body>
+</html>
