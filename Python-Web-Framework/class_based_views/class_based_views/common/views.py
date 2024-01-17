@@ -58,4 +58,25 @@ class PostListView(views.ListView):
         return context
 
 
+class PostDetailsView(views.DetailView):
+    model = Post
+    template_name = 'posts/details.html'
 
+
+class PostCreateView(views.CreateView):
+    model = Post
+    template_name = 'posts/create.html'
+    fields = ('title', 'content')
+    success_url = reverse_lazy('view_posts')
+
+
+class PostUpdateView(views.UpdateView):
+    model = Post
+    template_name = 'posts/update.html'
+    fields = ('title', 'content')
+
+
+class PostDeleteView(views.DeleteView):
+    model = Post
+    template_name = 'posts/delete.html'
+    success_url = reverse_lazy('view_posts')

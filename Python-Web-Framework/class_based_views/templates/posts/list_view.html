@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form action="{% url 'cbv_view_posts' %}">
+<form action="{% url 'view_posts' %}">
     <input type="text" name="search" value="{{ search }}">
     <input type="submit" value="Search">
 </form>
@@ -14,7 +14,9 @@
 <ul class="list">
     {% for post in posts %}
         <li>
-            {{ post.pk }} - {{ post.title }}
+            <a href="{% url 'post_details' post.pk %}">{{ post.pk }} - {{ post.title }}</a>
+            <a href="{% url 'post_update' post.pk %}">Update</a>
+            <a href="{% url 'post_delete' post.pk %}">Delete</a>
         </li>
     {% endfor %}
 </ul>
